@@ -16,7 +16,7 @@ Model= "text-davinci-003"
 
 
 # DESIGN implement changes to the standard streamlit UI/UX
-st.set_page_config(page_title="travel plans", page_icon="img/ai_travel.png",)
+st.set_page_config(page_title="travel plans", page_icon="ai_travel.png",)
 # Design hide top header line
 hide_decoration_bar_style = '''<style>header {visibility: hidden;}</style>'''
 st.markdown(hide_decoration_bar_style, unsafe_allow_html=True)
@@ -53,7 +53,7 @@ def gen_post(source_destination, nb_days, budget, destination):
 
 def main_gpt_post_generator():
 
-    st.image('img/banner_travel.png')  # Ttitle
+    st.image('banner_travel.png')  # Ttitle
     
     st.write('\n')  # add spacing
 
@@ -83,7 +83,7 @@ def main_gpt_post_generator():
 
     welcome_title = '<center style="font-family:Courier; color:Gray; font-size: 35px;">Plan your next trip now...</>'
     st.markdown(welcome_title, unsafe_allow_html=True)
-    st.image('img/benefits_ai.png')  # services
+    st.image('benefits_ai.png')  # services
 
 if __name__ == '__main__':
     main_gpt_post_generator()
