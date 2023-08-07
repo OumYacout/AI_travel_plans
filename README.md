@@ -2,4 +2,4 @@
 create travel plans - powered by OpenAI
 
 
-pip install -r requirements.txt
+Cloud link : https://aitravelagent.streamlit.app/
