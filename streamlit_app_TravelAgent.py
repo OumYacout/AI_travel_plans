@@ -10,7 +10,7 @@ import streamlit as st
 #openai.api_key = os.getenv("OPENAI_API_KEY")
 
 #or enter the api key here
-openai.api_key = OPENAI_API_KEY
+#openai.api_key = OPENAI_API_KEY
 
 Model= "text-davinci-003"
 
