@@ -86,12 +86,10 @@ def update_github_file(data):
 
 def main_send_message():
     st.subheader("Contact me for any personalized request")
-    name = st.text_input("Your Name")
-    email = st.text_input("Your Email")
     message = st.text_area("Message")
     
     if st.button("Submit"):
-        form_data = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+        form_data = f"Message: {message}"
         status_code = update_github_file(form_data)
 
         if status_code == 200:
