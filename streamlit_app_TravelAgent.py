@@ -53,10 +53,10 @@ def gen_post(source_destination, nb_days, budget, destination):
     return response.get("choices")[0]['text']
 
 def update_github_file(data):
-    github_token = github_token
-    repo_owner = repo_owner
-    repo_name = repo_name
-    file_path = file_path
+    #github_token = github_token
+    #repo_owner = repo_owner
+    #repo_name = repo_name
+    #file_path = file_path
 
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_path}"
     headers = {
