@@ -54,9 +54,9 @@ def gen_post(source_destination, nb_days, budget, destination):
 
 def update_github_file(data):
     #github_token = github_token
-    #repo_owner = repo_owner
-    #repo_name = repo_name
-    #file_path = file_path
+    repo_owner = "OumYacout"
+    repo_name = "AI_travel_plans"
+    file_path = "contact_form.txt" 
 
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_path}"
     headers = {
