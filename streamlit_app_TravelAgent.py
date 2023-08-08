@@ -17,9 +17,9 @@ import base64
 Model= "text-davinci-003"
 
 github_token = st.secrets.github_token
-repo_owner = "OumYacout"
-repo_name = "AI_travel_plans"
-file_path = "contact_form.txt"
+repo_owner = st.secrets.repo_owner
+repo_name = st.secrets.repo_name
+file_path = st.secrets.file_path
 
 
 # DESIGN implement changes to the standard streamlit UI/UX
