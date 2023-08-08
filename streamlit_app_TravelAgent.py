@@ -4,6 +4,8 @@
 import os
 import openai
 import streamlit as st
+import requests
+import base64
 
 
 # Connect to OpenAI GPT-3, fetch API key from Streamlit secrets
@@ -39,7 +41,7 @@ def gen_post(source_destination, nb_days, budget, destination):
         prompt=f"you are a travel agent, design 5 top travel plans (with etailed travel program) of {nb_days} days from {source_destination} to other destination over the world for a budget of {budget} $"
         "\ complete the travel plan with flight cost with aerien compagny, accommodation cost per day  , meals cost per day, 5 traditionnal meals proposition,"
         "\ detailed itinerary program."
-        "\reply with organized table",
+        "\reply with organized markdown table",
         
         temperature=0.8,
         max_tokens=3000,
@@ -50,6 +52,51 @@ def gen_post(source_destination, nb_days, budget, destination):
 
     return response.get("choices")[0]['text']
 
+def update_github_file(data):
+    github_token = "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"
+    repo_owner = "OumYacout"
+    repo_name = "AI_travel_plans"
+    file_path = "contact_form.txt"  # Relative path to the file in the repository
+
+    url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_path}"
+    headers = {
+        "Authorization": f"token {github_token}"
+    }
+
+    response = requests.get(url, headers=headers)
+    file_data = response.json()
+
+    if "content" in file_data:
+        decoded_content = base64.b64decode(file_data["content"]).decode("utf-8")
+    else:
+        decoded_content = ""
+
+    form_data = f"{decoded_content}\n\n{data}"
+    encoded_form_data = base64.b64encode(form_data.encode("utf-8")).decode("utf-8")
+
+    payload = {
+        "message": "Update contact form data",
+        "content": encoded_form_data,
+        "sha": file_data["sha"]
+    }
+
+    update_response = requests.put(url, json=payload, headers=headers)
+    return update_response.status_code
+
+def main():
+    st.title("Contact Form")
+    name = st.text_input("Your Name")
+    email = st.text_input("Your Email")
+    message = st.text_area("Message")
+    
+    if st.button("Submit"):
+        form_data = f"Name: {name}\nEmail: {email}\nMessage: {message}"
+        status_code = update_github_file(form_data)
+
+        if status_code == 200:
+            st.success("Form submitted and saved to GitHub successfully!")
+        else:
+            st.error("An error occurred while updating the file.")
 
 def main_gpt_post_generator():
 
@@ -87,3 +134,4 @@ def main_gpt_post_generator():
 
 if __name__ == '__main__':
     main_gpt_post_generator()
+    main()
