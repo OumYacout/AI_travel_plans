@@ -16,7 +16,7 @@ import base64
 
 Model= "text-davinci-003"
 
-#github_token = ""
+github_token = st.secret(["github_token"])
 repo_owner = "OumYacout"
 repo_name = "AI_travel_plans"
 file_path = "contact_form.txt"
