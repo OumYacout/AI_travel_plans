@@ -84,7 +84,7 @@ def update_github_file(data):
     return update_response.status_code
 
 def main_send_message():
-    st.subheader("Contact me for any personalized request)
+    st.subheader("Contact me for any personalized request")
     name = st.text_input("Your Name")
     email = st.text_input("Your Email")
     message = st.text_area("Message")
