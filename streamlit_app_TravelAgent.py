@@ -83,7 +83,7 @@ def update_github_file(data):
     update_response = requests.put(url, json=payload, headers=headers)
     return update_response.status_code
 
-def main():
+def main_send_message():
     st.subheader("Contact me for any personalized request)
     name = st.text_input("Your Name")
     email = st.text_input("Your Email")
@@ -134,4 +134,4 @@ def main_gpt_post_generator():
 
 if __name__ == '__main__':
     main_gpt_post_generator()
-    main()
+    main_send_message()
