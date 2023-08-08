@@ -16,6 +16,11 @@ import base64
 
 Model= "text-davinci-003"
 
+#github_token = ""
+repo_owner = "OumYacout"
+repo_name = "AI_travel_plans"
+file_path = "contact_form.txt"
+
 
 # DESIGN implement changes to the standard streamlit UI/UX
 st.set_page_config(page_title="travel plans", page_icon="ai_travel.png",)
@@ -53,9 +58,6 @@ def gen_post(source_destination, nb_days, budget, destination):
     return response.get("choices")[0]['text']
 
 def update_github_file(data):
-    repo_owner = "OumYacout"
-    repo_name = "AI_travel_plans"
-    file_path = "contact_form.txt" 
 
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/contents/{file_path}"
     headers = {
