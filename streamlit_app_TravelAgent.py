@@ -35,6 +35,17 @@ welcome_title = '<center style="font-family:Courier; color:Orange; font-size: 35
 st.markdown(welcome_title, unsafe_allow_html=True)
 st.write('\n')  # add spacing
 
+# Set the width of the sidebar
+st.markdown(
+    """
+    <style>
+    .sidebar .sidebar-content {
+        width: 300px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 openai.api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 if openai.api_key=="":
     st.sidebar.write("You do not provide an API key. Please enter your openai key")
