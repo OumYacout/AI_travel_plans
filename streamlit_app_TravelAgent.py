@@ -123,8 +123,7 @@ def main_gpt_post_generator():
     input_days = st.text_input('Trip duration (in days)')
     input_budget = st.text_input('What is your budget ($) ')
 
-       col1, col2, col3 = st.columns([10, 10, 10])
-
+    col1, col2, col3 = st.columns([10, 10, 10])
     with col1:
         pass
     with col3:
