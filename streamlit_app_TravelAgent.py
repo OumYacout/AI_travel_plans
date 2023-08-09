@@ -35,6 +35,8 @@ welcome_title = '<center style="font-family:Courier; color:Orange; font-size: 35
 st.markdown(welcome_title, unsafe_allow_html=True)
 st.write('\n')  # add spacing
 
+openai.api_key = st.sidebar.text_input('OpenAI API Key', type='password')
+
 def gen_post(source_destination, nb_days, budget, destination):
 
     response = openai.Completion.create(
