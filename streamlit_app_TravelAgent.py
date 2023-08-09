@@ -94,7 +94,7 @@ def main_send_message():
         status_code = update_github_file(form_data)
 
         if status_code == 200:
-            st.success("Form submitted and saved to GitHub successfully!")
+            st.success("Form submitted successfully!")
         else:
             st.error("An error occurred while updating the file.")
 
