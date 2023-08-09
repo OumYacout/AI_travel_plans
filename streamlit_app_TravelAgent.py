@@ -46,7 +46,8 @@ def gen_post(source_destination, nb_days, budget, destination):
         prompt=f"you are a travel agent, design 5 top travel plans (with etailed travel program) of {nb_days} days from {source_destination} to other destination over the world for a budget of {budget} $"
         "\ complete the travel plan with flight cost with aerien compagny, accommodation cost per day  , meals cost per day, 5 traditionnal meals proposition,"
         "\ detailed itinerary program."
-        "\reply with organized markdown table",
+        "\reply with organized markdown table"
+        "\add new table that proposes flight company and hotel recommendations with web links",
         
         temperature=0.8,
         max_tokens=3000,
