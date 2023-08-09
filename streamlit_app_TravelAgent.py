@@ -36,7 +36,10 @@ st.markdown(welcome_title, unsafe_allow_html=True)
 st.write('\n')  # add spacing
 
 openai.api_key = st.sidebar.text_input('OpenAI API Key', type='password')
-
+if openai.api_key=="":
+    st.sidebar.write("You do not provide an API key. Please enter your openai key")
+st.sidebar.write('\n')
+st.sidebar.write("<a href='https://platform.openai.com/account/api-keys' id='api_link'>Generate you own API key by clicking here</a>", unsafe_allow_html=True)
 st.sidebar.write('\n')
 st.sidebar.write('\n')
 
@@ -120,17 +123,19 @@ def main_gpt_post_generator():
     input_days = st.text_input('Trip duration (in days)')
     input_budget = st.text_input('What is your budget ($) ')
 
-    col1, col2, col3 = st.columns([10, 10, 10])
+       col1, col2, col3 = st.columns([10, 10, 10])
 
     with col1:
         pass
     with col3:
         pass
     with col2 :
-        
         if st.button('create travel plan'):
-            with st.spinner():
-                post_text = gen_post(input_destination, input_days, input_budget, 'any')
+            if openai.api_key=="":
+                st.warning("You do not provide an API key. Please enter your openai key")
+            else:
+                with st.spinner():
+                    post_text = gen_post(input_destination, input_days, input_budget, 'any')
     if post_text != "":
         st.write('\n')  # add spacing
         with st.expander("Travel plans", expanded=True):
