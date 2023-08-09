@@ -37,6 +37,12 @@ st.write('\n')  # add spacing
 
 openai.api_key = st.sidebar.text_input('OpenAI API Key', type='password')
 
+st.sidebar.write('\n')
+st.sidebar.write('\n')
+
+
+st.sidebar.image("bmc_qr.png")
+
 def gen_post(source_destination, nb_days, budget, destination):
 
     response = openai.Completion.create(
