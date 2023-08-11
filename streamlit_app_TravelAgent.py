@@ -69,6 +69,7 @@ bmc_button_html = """
 with st.sidebar:
     st.components.v1.html(bmc_button_html, height=70)
 
+st.sidebar.write("So I can keep it alive. Thank you!")
 st.sidebar.image("bmc_qr.png")
 
 def gen_post(source_destination, nb_days, budget, destination):
