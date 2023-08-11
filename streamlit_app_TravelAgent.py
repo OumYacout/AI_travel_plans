@@ -52,8 +52,22 @@ if openai.api_key=="":
 st.sidebar.write('\n')
 st.sidebar.write("<a href='https://platform.openai.com/account/api-keys' id='api_link'>Generate you own API key by clicking here</a>", unsafe_allow_html=True)
 st.sidebar.write('\n')
-st.sidebar.write('\n')
 
+
+bmc_button_html = """
+<div style="display: flex; justify-content: center; align-items: center; height: 100%;">
+    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+        data-name="bmc-button" data-slug="naouarbelgx" data-color="#FFDD00" data-emoji=""
+        data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000"
+        data-font-color="#000000" data-coffee-color="#ffffff">
+    </script>
+</div>
+"""
+
+# Display the Buy Me a Coffee button HTML in the sidebar
+
+with st.sidebar:
+    st.components.v1.html(bmc_button_html, height=70)
 
 st.sidebar.image("bmc_qr.png")
 
