@@ -23,7 +23,7 @@ file_path = st.secrets.file_path
 
 
 # DESIGN implement changes to the standard streamlit UI/UX
-st.set_page_config(page_title="travel plans", page_icon="ai_travel.png",)
+st.set_page_config(page_title="travel plans", page_icon="My_logo.png",)
 # Design hide top header line
 hide_decoration_bar_style = '''<style>header {visibility: hidden;}</style>'''
 st.markdown(hide_decoration_bar_style, unsafe_allow_html=True)
