@@ -72,6 +72,11 @@ with st.sidebar:
 st.sidebar.write("So I can keep it alive. Thank you!")
 st.sidebar.image("bmc_qr.png")
 
+
+st.sidebar.subheader("Visit our other generative apps:")
+st.sidebar.write("<a href='https://ai-business.streamlit.app/' id='app1_link'>AI Business Toolkit</a>", unsafe_allow_html=True)
+
+
 def gen_post(source_destination, nb_days, budget, destination):
 
     response = openai.Completion.create(
